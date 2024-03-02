@@ -20,7 +20,7 @@ path = ''.join(path)
 sys.path.append(path)
 
 import method
-import inpNeoHookeanRoboticArm as inp1
+import inpNeoHookeanBeam as inp1
 
 a = method.mNewtonStatics(inp1)
 

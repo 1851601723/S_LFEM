@@ -37,7 +37,7 @@ h = 10.0                                                                       #
 Ix = b*h**3/12
 Iy = h*b**3/12   
 geometrys = []                                                                 # Geometry list
-geometrys.append(geometry.g3DBeam(200.0,b*h**3/12,26092.79,1))                            # (unit of area : mm^2) (unit of Moment of inertia : mm^4)
+geometrys.append(geometry.g3DBeam(200.0,Ix,Iy,1))                            # (unit of area : mm^2) (unit of Moment of inertia : mm^4)
 
 '''material setting'''
 materials = []                                                                 # material list
@@ -56,7 +56,7 @@ for i in range(numNode):
                                         list(range(6*i,6*i+6)),
                                         np.array([[0],[0],[0.0]]),
                                         [[0.0],[np.array([0.0,0.0])]],
-                                        np.array([[0],[0],[1.0*0.002],[0],[0],[0]])
+                                        np.array([[0],[0],[0.0*0.002],[0],[0],[0]])
                                         )
                  )
 
@@ -87,7 +87,7 @@ for i in range(6):
 
 Oconstraints.append(constraint.constraint(6 * numNode - 6,
                                               'elastic boundary',
-                                              [0.0,0.0*2.0],
+                                              [0.0,0.5*2.0],
                                               Loading
                                               )
                     )    
